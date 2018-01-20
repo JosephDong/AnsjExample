@@ -55,6 +55,13 @@ public class TrainOrderSMSParser {
                 trainInfo.setWagonBox(term.getName());
             } else if(term.getName().indexOf("号") > 0) {
                 trainInfo.setSeatNumber(term.getName());
+            } else if(term.getName().equals("号")) {
+                String seatNumber = termList.get(i - 2).getName() + termList.get(i - 1).getName() + term.getName();
+                if(trainInfo.getSeatNumber() != null) {
+                    trainInfo.setSeatNumber(trainInfo.getSeatNumber() + "、" + seatNumber);
+                } else {
+                    trainInfo.setSeatNumber(seatNumber);
+                }
             } else if(term.getName().indexOf("站") >= 0) {
                 trainInfo.setStation(termList.get(i - 1).getName() + term.getName());
             } else if(term.getName().indexOf("开") > 0) {

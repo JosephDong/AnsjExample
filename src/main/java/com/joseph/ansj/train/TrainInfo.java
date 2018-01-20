@@ -12,6 +12,7 @@ public class TrainInfo implements Serializable {
     private String seatNumber;
     private String station;
     private String time;
+    private String ticketNo;
 
     public String getOrderSn() {
         return orderSn;
@@ -77,6 +78,14 @@ public class TrainInfo implements Serializable {
         this.time = time;
     }
 
+    public String getTicketNo() {
+        return ticketNo;
+    }
+
+    public void setTicketNo(String ticketNo) {
+        this.ticketNo = ticketNo;
+    }
+
     @Override
     public String toString() {
         return "TrainInfo{" +
@@ -88,6 +97,7 @@ public class TrainInfo implements Serializable {
                 ", seatNumber='" + seatNumber + '\'' +
                 ", station='" + station + '\'' +
                 ", time='" + time + '\'' +
+                ", ticketNo='" + ticketNo + '\'' +
                 '}';
     }
 }

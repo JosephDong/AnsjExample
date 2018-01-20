@@ -14,6 +14,7 @@ public class TrainOrderSMSParser {
         DicLibrary.insert(DicLibrary.DEFAULT, "【铁路客服】", "a", 1);
         DicLibrary.insert(DicLibrary.DEFAULT, "订单", "b", 1);
         DicLibrary.insert(DicLibrary.DEFAULT, "您已购", "c", 1);
+        DicLibrary.insert(DicLibrary.DEFAULT, "检票口：", "d", 1);
 
         StopRecognition filter = new StopRecognition();
         filter.insertStopWords("，");
@@ -66,9 +67,12 @@ public class TrainOrderSMSParser {
                 trainInfo.setStation(termList.get(i - 1).getName() + term.getName());
             } else if(term.getName().indexOf("开") > 0) {
                 trainInfo.setTime(termList.get(i - 2).getName() + ":" + term.getName());
+            } else if(term.getName().equals("检票口：")) {
+                trainInfo.setTicketNo(termList.get(i + 1).getName());
             }
         }
         trainInfo.setDate(date);
+        System.out.println(result);
         return trainInfo;
     }
 }

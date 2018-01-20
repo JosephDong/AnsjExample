@@ -5,18 +5,12 @@ import org.ansj.domain.Term;
 import org.ansj.library.DicLibrary;
 import org.ansj.recognition.impl.StopRecognition;
 import org.ansj.splitWord.analysis.DicAnalysis;
-import org.ansj.splitWord.analysis.NlpAnalysis;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 
 public class TrainOrderSMSParser {
 
-    public static void main(String[] args) {
-//        String sms = "【铁路客服】订单EF91817420,董约瑟您已购1月15日G6074次2车39号,平凉站13:10开。
-        String sms = "【铁路客服】订单EF62052112,董约瑟您已购2月12日G7581次10车4D号、4F号,昆山南站08:50开,检票口：3。";
+    public static TrainInfo parse(final String sms) {
         DicLibrary.insert(DicLibrary.DEFAULT, "【铁路客服】", "a", 1);
         DicLibrary.insert(DicLibrary.DEFAULT, "订单", "b", 1);
         DicLibrary.insert(DicLibrary.DEFAULT, "您已购", "c", 1);
@@ -68,7 +62,6 @@ public class TrainOrderSMSParser {
             }
         }
         trainInfo.setDate(date);
-        System.out.println(result);
-        System.out.println(trainInfo);
+        return trainInfo;
     }
 }

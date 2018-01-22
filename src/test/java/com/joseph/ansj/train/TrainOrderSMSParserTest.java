@@ -10,6 +10,7 @@ public class TrainOrderSMSParserTest {
         String sms1 = "【铁路客服】订单EF91817420,斯琴高娃您已购1月15日6074次2车39号,平凉站13:10开。";
         String sms2 = "【铁路客服】订单EF62052112,董约瑟您已购2月12日G7581次10车4D号,昆山南站08:50开,检票口：3。";
         String sms3 = "【铁路客服】订单EF62052112,董约瑟您已购2月12日G7581次10车4D号、4F号,哈尔滨南站08:50开,检票口：3。";
+        String sms4 = "订单EF62052112,董约瑟您已购2月12日G7581次10车4D号、4F号,哈尔滨南站08:50开,检票口：3。【铁路客服】";
 
         TrainInfo info1 = TrainOrderSMSParser.parse(sms1);
         System.out.println(info1);

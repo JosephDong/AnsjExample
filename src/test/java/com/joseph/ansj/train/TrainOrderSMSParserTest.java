@@ -27,5 +27,9 @@ public class TrainOrderSMSParserTest {
         TrainInfo info3 = TrainOrderSMSParser.parse(sms3);
         System.out.println(info3);
         Assert.assertTrue("4D号、4F号".equals(info3.getSeatNumber().toUpperCase()));
+
+        TrainInfo info4 = TrainOrderSMSParser.parse(sms4);
+        System.out.println(info4);
+        Assert.assertTrue("董约瑟".equals(info4.getName()));
     }
 }
